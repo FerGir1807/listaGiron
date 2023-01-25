@@ -1,0 +1,38 @@
+<div>
+    <h1>Lista de Estudiantes</h1>
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let estudiante of listaEstudiantes">
+            <div class="card">
+                <div class="card-body"
+                    [ngClass]="estudiante.activo?'card-body border border-5 border-primary':'card-body border border-5 border-danger'">
+                    <h3 class="card-title">{{estudiante.nombre}}</h3>
+                    <p class="card-text">Apellido: {{estudiante.apellido}}</p>
+                    <p class="card-text">Edad: {{estudiante.edad}}</p>
+                    <p class="card-text">Curso: {{estudiante.curso}}</p>
+                    <p class="card-text">Activo: {{estudiante.activo}}</p>
+                    <p class="card-text">Deporte: {{estudiante.deporte === ""?"Sin información":estudiante.deporte}}</p>
+                    <div [ngSwitch]="estudiante.deporte">
+                        <img *ngSwitchCase="'futbol'"
+                            src="https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            width="200" height="200">
+                        <img *ngSwitchCase="'volleyball'"
+                            src="https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            width="200" height="200">
+                        <img *ngSwitchCase="'baseball'"
+                            src="https://images.pexels.com/photos/163487/baseball-player-pitcher-ball-163487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            width="200" height="200">
+                        <img *ngSwitchCase="'karate'"
+                            src="https://images.pexels.com/photos/3023756/pexels-photo-3023756.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            width="200" height="200">
+                        <img *ngSwitchDefault
+                            src="https://images.pexels.com/photos/236937/pexels-photo-236937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            width="200" height="200">
+                    </div>
+                    <br>
+                    <p *ngIf="!estudiante.activo" [style]="'color:red'">No olvides reactivar tu estatus</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
